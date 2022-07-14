@@ -1,0 +1,40 @@
+body {
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  width: 400px;
+  /* margin: 100px 300px 0 300px; */
+}
+
+#password,
+#email {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0rem 0.5rem 0rem;
+  justify-content: center;
+}
+
+input {
+  width: 450px;
+  padding: 0.5rem;
+  border-radius: 40px;
+  border: none;
+}
+
+button {
+  width: 100px;
+  height: 20px;
+}
+
+.ngIf {
+  font-size: 12px;
+  color: rgb(228, 38, 38);
+}

@@ -1,17 +1,22 @@
 body {
   justify-content: center;
   align-items: center;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 247, 191, 1) 0%,
+    rgba(195, 228, 201, 1) 45%
+  );
 }
 
 .form-container {
-  margin-top: 5rem;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 form {
   width: 400px;
-  /* margin: 100px 300px 0 300px; */
 }
 
 #password,

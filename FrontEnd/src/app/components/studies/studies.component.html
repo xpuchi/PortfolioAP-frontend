@@ -1,37 +1,101 @@
 <div class="estudios">
-  <!-- *ngFor="let educacion of educaciones" -->
-  <h2>Estudios <i class="fa-solid fa-pen-to-square"></i></h2>
+  <h2 class="estudios-titulo">
+    Estudios
+    <div>
+      <button type="button" data-toggle="modal" data-target="#agregarEducacion">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    </div>
+  </h2>
 
-  <h3>Cursos</h3>
-  <p class="año">2021</p>
-  <p class="titulo-curso">"PHP Full Stack"</p>
-  <p>(Programa Codo a Codo)</p>
-  <p>
-    <!-- {{ educacion.descripcion }} -->
-    <!-- Desarrollo front-end(HTML, CSS, JavaScript, Bootstrap) y back-end(PHP,
-    MySQL). Duración 5 meses. -->
-  </p>
+  <div>
+    <h3>Cursos</h3>
+    <ng-container *ngFor="let educacion of educaciones">
+      <p class="año">{{ educacion["año"] }}</p>
+      <div class="titulocurso-botones">
+        <p class="titulo-curso">"{{ educacion.titulo }}"</p>
+        <div>
+          <button
+            type="button"
+            data-toggle="modal"
+            data-target="#editarEducacion"
+          >
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
 
-  <p class="titulo-curso">"#SéProgramar"</p>
-  <p>(Argentina Programa)</p>
-  <p>
-    Conocimientos básicos de programación y lógica (Gobstones, JavaScript, Ruby
-    orientado a objetos).
-  </p>
+          <button type="button">
+            <i
+              class="fa-solid fa-trash-can"
+              data-toggle="modal"
+              data-target="#borrarEducacion"
+            ></i>
+          </button>
+        </div>
+      </div>
+      <p class="subtitulo-curso">{{ educacion.subtitulo }}</p>
+      <p>
+        {{ educacion.descripcion }}
+      </p>
+    </ng-container>
+  </div>
+</div>
 
-  <p class="titulo-curso">"Habilidades Blandas"</p>
-  <p>(Codo a Codo + Accenture)</p>
-  <p>Autoconfianza, comunicación, trabajo en equipo.</p>
+<!-- Modal editar educacion -->
 
-  <p class="año">2022</p>
-  <p class="titulo-curso">"#YoProgramo"</p>
-  <p>(Argentina Programa parte II)</p>
-  <p>
-    Programación Full-stack Web Jr (HTML, CSS, TypeScript, Bootstrap, Angular,
-    MySQL, Java Springboot, Apache Tomcat). Duración 7 meses.
-  </p>
+<div
+  class="modal fade"
+  id="editarEducacion"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="editarEducacionModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarEducacionModalLabel">
+          Editar Educación
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="nombre">Año:</label>
+            <input type="text" class="form-control" />
+          </div>
 
-  <p class="titulo-curso">"Become a front-end developer with Altimetrik"</p>
-  <p>(Altimetrik Bootcamp)</p>
-  <p>HTML, CSS, JavaScript. Duración 2 meses.</p>
+          <input type="hidden" name="id" class="form-control" id="id" />
+
+          <div class="form-group">
+            <label for="apellido">Título:</label>
+            <input type="text" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <label for="descripcion">Subtítulo:</label>
+            <input type="text" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <label for="ubicacion">Descripción:</label>
+            <textarea class="form-control" id="descripcion" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="submit" class="buttonmodal">Guardar</button>
+      </div>
+    </div>
+  </div>
 </div>

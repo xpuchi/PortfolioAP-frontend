@@ -12,41 +12,41 @@ public class Habilidades implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     
-    private Long idHabilidades;
-    private String iconoHabilidad;
-    private String habilidad;
+    private Long id;
+    private String Icono;
+    private String Habilidad;
     
     public Habilidades(){
     }
     
-    public Habilidades(Long idHabilidades, String iconoHabilidad, String habilidad){
-        this.idHabilidades = idHabilidades;
-        this.iconoHabilidad = iconoHabilidad;
-        this.habilidad = habilidad;
+    public Habilidades(Long id, String Icono, String Habilidad){
+        this.id = id;
+        this.Icono = Icono;
+        this.Habilidad = Habilidad;
 }
 
-    public Long getIdHabilidades() {
-        return idHabilidades;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdHabilidades(Long idHabilidades) {
-        this.idHabilidades = idHabilidades;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getIconoHabilidad() {
-        return iconoHabilidad;
+    public String getIcono() {
+        return Icono;
     }
 
-    public void setIconoHabilidad(String iconoHabilidad) {
-        this.iconoHabilidad = iconoHabilidad;
+    public void setIcono(String icono) {
+        this.Icono = icono;
     }
 
     public String getHabilidad() {
-        return habilidad;
+        return Habilidad;
     }
 
     public void setHabilidad(String habilidad) {
-        this.habilidad = habilidad;
+        this.Habilidad = habilidad;
     }
 
     

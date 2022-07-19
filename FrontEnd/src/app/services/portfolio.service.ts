@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class PortfolioService {
   constructor(private http: HttpClient) {}
 
-  obtenerDatos(): Observable<any> {
+  getPersona(): Observable<any> {
     return this.http.get(`${environment.apiBaseUrl}/persona/id/1`);
   }
 }

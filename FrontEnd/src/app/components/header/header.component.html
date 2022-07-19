@@ -1,23 +1,84 @@
 <div class="center">
   <div class="introduccion">
     <header>
-      <i class="fa-solid fa-pen-to-square"></i>
-      <h1>{{ miPortfolio.nombre }} {{ miPortfolio.apellido }}</h1>
+      <div>
+        <button type="button" data-toggle="modal" data-target="#editarPersona">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+        <button type="button"><i class="fa-solid fa-trash-can"></i></button>
+      </div>
+      <h1>{{ persona.nombre }} {{ persona.apellido }}</h1>
       <h2>Sobre mi</h2>
-      <p>
-        {{ miPortfolio.descripcion }}
+      <p class="descripcion">
+        {{ persona.descripcion }}
       </p>
 
       <div>
         <span class="ubicacion">
           <p>
             Ubicación <i class="fa-solid fa-location-dot"></i>
-            {{ miPortfolio.ubicacion }}
+            {{ persona.ubicacion }}
           </p>
         </span>
       </div>
     </header>
 
     <img src="./assets/img/laptop-cat.gif" />
+  </div>
+</div>
+
+<!-- Modal -->
+
+<div
+  class="modal fade"
+  id="editarPersona"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="editarPersonaModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarPersonaModalLabel">Editar Datos</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <label for="apellido">Apellido:</label>
+            <input type="text" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <label for="descripcion">Sobre mi:</label>
+            <textarea class="form-control" id="descripcion" rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="ubicacion">Ubicación:</label>
+            <input type="text" class="form-control" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" class="buttonmodal">Guardar</button>
+      </div>
+    </div>
   </div>
 </div>

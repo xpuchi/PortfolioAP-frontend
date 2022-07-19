@@ -9,18 +9,23 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  miPortfolio: Persona = {
+  constructor(private portfolioService: PortfolioService) {}
+
+  public persona: Persona = {
     nombre: '',
     apellido: '',
     descripcion: '',
     ubicacion: '',
   };
 
-  constructor(private portfolioService: PortfolioService) {}
-
   ngOnInit(): void {
-    this.portfolioService.obtenerDatos().subscribe((data) => {
-      this.miPortfolio = data;
+    this.portfolioService.getPersona().subscribe({
+      next: (response: Persona) => {
+        this.persona = response;
+      },
+      error: (error: HttpErrorResponse) => {
+        alert(error.message);
+      },
     });
   }
 }

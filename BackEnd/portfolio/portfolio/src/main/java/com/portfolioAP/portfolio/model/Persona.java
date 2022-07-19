@@ -25,10 +25,10 @@ public class Persona implements Serializable {
     private String ubicacion;
 
     
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idEducacion")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id")
     private List<Educacion> educacionList;
     
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idHabilidades")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id")
     private List<Habilidades> habilidadesList;
     
     public Persona() {

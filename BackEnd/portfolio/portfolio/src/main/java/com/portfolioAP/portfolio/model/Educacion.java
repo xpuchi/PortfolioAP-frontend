@@ -13,54 +13,61 @@ public class Educacion implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     
-    private Long idEducacion;
-    private int añoEducacion;
-    private String tituloEducacion;
-    private String descripcionEducacion;
+    private Long id;
+    private String Año;
+    private String Titulo;
+    private String Subtitulo;
+    private String Descripcion;
     
     public Educacion(){
     }
 
-    public Educacion(Long idEducacion, int añoEducacion, String tituloEducacion, String descripcionEducacion) {
-        this.idEducacion = idEducacion;
-        this.añoEducacion = añoEducacion;
-        this.tituloEducacion = tituloEducacion;
-        this.descripcionEducacion = descripcionEducacion;
+    public Educacion(Long id, String Año, String Titulo, String Subtitulo, String Descripcion) {
+        this.id = id;
+        this.Año = Año;
+        this.Titulo = Titulo;
+        this.Subtitulo = Subtitulo;
+        this.Descripcion = Descripcion;
     }
 
-    public Long getIdEducacion() {
-        return idEducacion;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdEducacion(Long idEducacion) {
-        this.idEducacion = idEducacion;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public int getAñoEducacion() {
-        return añoEducacion;
+    public String getAño() {
+        return Año;
     }
 
-    public void setAñoEducacion(int añoEducacion) {
-        this.añoEducacion = añoEducacion;
+    public void setAño(String Año) {
+        this.Año = Año;
     }
 
-    public String getTituloEducacion() {
-        return tituloEducacion;
+    public String getTitulo() {
+        return Titulo;
     }
 
-    public void setTituloEducacion(String tituloEducacion) {
-        this.tituloEducacion = tituloEducacion;
-    }
-
-    public String getDescripcionEducacion() {
-        return descripcionEducacion;
-    }
-
-    public void setDescripcionEducacion(String descripcionEducacion) {
-        this.descripcionEducacion = descripcionEducacion;
+    public void setTitulo(String Titulo) {
+        this.Titulo = Titulo;
     }
     
+    public String getSubtitulo() {
+        return Subtitulo;
+    }
     
+    public void setSubtitulo(String Subtitulo) {
+        this.Subtitulo = Subtitulo;
+    }
+
+    public String getDescripcion() {
+        return Descripcion;
+    }
+
+    public void setDescripcion(String Descripcion) {
+        this.Descripcion = Descripcion;
+    }
     
 }
-    

@@ -9,32 +9,30 @@ violet bckgrnd #c0bac8
 yellow bckgrnd #dfe8a7
 */
 
-/*slider*/
-
-/* html,
 body {
-  height: 100%;
-  overflow: hidden;
-} */
-
-/* .container,
-.sections,
-.section {
-  position: relative;
-  height: 100%;
-} */
-
-body {
-  background: rgb(255, 247, 191);
   background: linear-gradient(
     0deg,
     rgba(255, 247, 191, 1) 0%,
-    rgba(195, 228, 201, 1) 45%
+    rgb(202, 227, 181) 40%,
+    rgb(198, 233, 204) 100%
   );
   color: #153c3d;
   font-family: "Raleway";
   margin: auto;
   align-items: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+p {
+  margin: 5px 0 5px 0;
 }
 
 /*scrollbar color*/
@@ -64,21 +62,11 @@ body::-webkit-scrollbar-thumb {
   color: white;
 }
 
+/* Header */
 .center {
   display: flex;
   justify-content: center;
 }
-
-.introduccion {
-  margin-top: 11rem;
-  margin-bottom: 11rem;
-  display: flex;
-  flex-direction: row;
-  text-align: justify;
-  width: 950px;
-  gap: 50px;
-}
-
 header {
   justify-content: center;
   align-items: center;
@@ -86,6 +74,20 @@ header {
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
+}
+
+.introduccion {
+  margin-top: 12rem;
+  margin-bottom: 12rem;
+  display: flex;
+  flex-direction: row;
+  text-align: justify;
+  width: 950px;
+  gap: 50px;
+}
+
+.descripcion {
+  font-size: 20px;
 }
 
 .ubicacion {
@@ -107,23 +109,27 @@ img {
 h1 {
   font-size: 3rem;
   background-color: #faec86;
+  font-weight: bolder;
+  margin: 30px;
 }
 
-p {
-  margin: 5px 0 5px 0;
-}
-
+/* Botones */
 button {
-  font-size: 10px;
-  cursor: pointer;
-  border-radius: 40px;
-  background-color: #cda0cc;
-  color: white;
+  background-color: transparent;
   border: none;
-  margin: 2px;
+  color: white;
+  padding: 1px;
 }
 
-button:hover {
+.buttonmodal {
+  background-color: #cda0cc;
+  color: aliceblue;
+  cursor: pointer;
+  padding: 7px;
+  border-radius: 3px;
+}
+
+.buttonmodal:hover {
   background-color: #ebc6ea;
 }
 
@@ -134,35 +140,88 @@ button:hover {
   place-content: center;
 }
 
+/* Estudios */
 .estudios {
   justify-content: center;
   display: grid;
 }
 
-.fa-pen-to-square {
+.fa-pen-to-square,
+.fa-trash-can,
+.fa-plus {
   color: #2f4b4b;
+  padding: 5px;
 }
-.fa-pen-to-square:hover {
+.fa-pen-to-square:hover,
+.fa-trash-can:hover,
+.fa-plus:hover {
   color: #cda0cc;
   cursor: pointer;
 }
-.titulo-curso {
-  font-weight: bold;
-}
-.año {
-  background-color: #cda0cc;
-  color: white;
+
+.estudios-titulo,
+.habilidades-titulo {
+  display: flex;
+  justify-content: space-between;
 }
 
+.titulocurso-botones {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.titulo-curso {
+  font-weight: bold;
+  background-color: #88ab8d;
+  color: white;
+}
+.subtitulo-curso {
+  font-size: 13px;
+  font-style: italic;
+}
+.año {
+  color: #153c3d;
+}
+
+/* Habilidades */
 .habilidades {
   display: grid;
-  align-self: start;
 }
 .lenguajes {
   display: grid;
-  grid-template-columns: 2fr 15fr;
+  grid-template-columns: 2fr 2fr;
+  border-radius: 0px 50px 50px 0px;
+  gap: 20px;
 }
 
+.habilidad-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #cda0cc;
+  color: aliceblue;
+  border-radius: 50px;
+  margin: 4px;
+  align-items: center;
+  gap: 2px;
+}
+
+.habilidad-item:hover {
+  background-color: #ebc6ea;
+}
+
+.habilidad-icon {
+  margin: 4px;
+  width: 20px;
+  height: 20px;
+  filter: invert(100%);
+}
+.idiomas {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* Contacto */
 .contacto {
   display: flex;
   justify-content: center;
@@ -176,7 +235,7 @@ button:hover {
 }
 .contacto a {
   text-decoration: none;
-  color: #88ab8d;
+  color: #153c3d;
   font-size: larger;
   margin-right: 15px;
 }
@@ -193,6 +252,7 @@ a:hover {
   margin-right: 13px;
 }
 
+/* Footer */
 footer {
   display: flex;
   justify-content: center;

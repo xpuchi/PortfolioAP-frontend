@@ -1,27 +1,70 @@
-<h2>Habilidades <i class="fa-solid fa-pen-to-square"></i></h2>
-<h3 class="desarrollo">Desarrollo</h3>
-<p class="lenguajes">
-  <i class="fa-solid fa-code"></i>HTML
-  <i class="fa-brands fa-css3-alt"></i>CSS<br />
-  <i class="fa-brands fa-sass"></i>SASS
-  <i class="fa-brands fa-git-alt"></i>GIT<br />
-  <i class="fa-brands fa-js-square"></i>JavaScript
-  <i class="fa-brands fa-bootstrap"></i>Bootstrap<br />
-  <i class="fa-brands fa-php"></i>PHP básico
-  <i class="fa-brands fa-java"></i>Java básico<br />
-  <i class="fa-brands fa-angular"></i>Angular básico
-  <i class="fa-solid fa-database"></i>MySQL<br />
-  <br />
-</p>
+<div class="habilidades-container">
+  <h2 class="habilidades-titulo">
+    Habilidades
+    <div>
+      <button type="button" data-toggle="modal" data-target="#agregarHabilidad">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <button type="button">
+        <i
+          class="fa-solid fa-pen-to-square"
+          data-toggle="modal"
+          data-target="#editarHabilidades"
+        ></i>
+      </button>
+      <button type="button"><i class="fa-solid fa-trash-can"></i></button>
+    </div>
+  </h2>
+  <h3 class="desarrollo">Desarrollo</h3>
+  <p class="lenguajes">
+    <ng-container *ngFor="let habilidad of habilidades">
+      <p class="habilidad-item">
+        <img src="{{ habilidad.icono }}" class="habilidad-icon" />
+        {{ habilidad.habilidad }}
+      </p>
+    </ng-container>
+  </p>
 
-<p>Actualmente aprendiendo <i class="fa-brands fa-react"></i> React</p>
+  <div class="idiomas">
+    <h3>Idiomas</h3>
+    <p>Inglés avanzado</p>
+  </div>
 
-<div class="idiomas">
-  <h3>Idiomas</h3>
-  <p>Inglés avanzado</p>
+  <div class="otras-habilidades">
+    <h3>Otras Habilidades</h3>
+    <p>Adobe Photoshop • Adobe Illustrator • Ilustración</p>
+  </div>
 </div>
 
-<div class="otras-habilidades">
-  <h3>Otras Habilidades</h3>
-  <p>Adobe Photoshop • Adobe Illustrator • Ilustración</p>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="editarHabilidades"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="editarHabilidadesModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Habilidades</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">Acá va el formulario</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" class="buttonmodal">Guardar</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,9 +1,10 @@
 export class Habilidades {
-  id?: number;
+  id: number;
   icono: string;
   habilidad: string;
 
-  constructor(icono: string, habilidad: string) {
+  constructor(id: number, icono: string, habilidad: string) {
+    this.id = id;
     this.icono = icono;
     this.habilidad = habilidad;
   }

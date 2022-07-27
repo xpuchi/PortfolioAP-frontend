@@ -133,6 +133,11 @@ button {
   background-color: #ebc6ea;
 }
 
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
 .contenido {
   display: grid;
   grid-template-columns: 27% 27%;

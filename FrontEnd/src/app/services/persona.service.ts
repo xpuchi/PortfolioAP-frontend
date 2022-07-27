@@ -22,4 +22,8 @@ export class PersonaService {
       persona
     );
   }
+
+  public borrarPersona(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/persona/borrar/${id}`);
+  }
 }

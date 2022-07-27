@@ -2,26 +2,42 @@
   <h2 class="habilidades-titulo">
     Habilidades
     <div>
-      <button type="button" data-toggle="modal" data-target="#agregarHabilidad">
+      <button
+        type="button"
+        data-toggle="modal"
+        data-target="#agregarHabilidadesModal"
+      >
         <i class="fa-solid fa-plus"></i>
       </button>
-      <button type="button">
-        <i
-          class="fa-solid fa-pen-to-square"
-          data-toggle="modal"
-          data-target="#editarHabilidades"
-        ></i>
+      <!-- <button
+        type="button"
+        data-toggle="modal"
+        data-target="#editarHabilidadesModal"
+      >
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button> -->
+      <button
+        type="button"
+        data-toggle="modal"
+        data-target="#borrarHabilidadesModal"
+      >
+        <i class="fa-solid fa-trash-can"></i>
       </button>
-      <button type="button"><i class="fa-solid fa-trash-can"></i></button>
     </div>
   </h2>
   <h3 class="desarrollo">Desarrollo</h3>
   <p class="lenguajes">
     <ng-container *ngFor="let habilidad of habilidades">
-      <p class="habilidad-item">
-        <img src="{{ habilidad.icono }}" class="habilidad-icon" />
-        {{ habilidad.habilidad }}
-      </p>
+      <button
+        type="button"
+        data-toggle="modal"
+        data-target="#editarHabilidadesModal"
+      >
+        <div class="habilidad-item">
+          <img src="{{ habilidad.icono }}" class="habilidad-icon" />
+          {{ habilidad.habilidad }}
+        </div>
+      </button>
     </ng-container>
   </p>
 
@@ -36,19 +52,21 @@
   </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal editar -->
 <div
   class="modal fade"
-  id="editarHabilidades"
+  id="editarHabilidadesModal"
   tabindex="-1"
   role="dialog"
-  aria-labelledby="editarHabilidadesModalLabel"
+  aria-labelledby="editarHabilidadesModal"
   aria-hidden="true"
 >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Habilidades</h5>
+        <h5 class="modal-title" id="editarHabilidadesModal">
+          Editar Habilidad
+        </h5>
         <button
           type="button"
           class="close"
@@ -58,12 +76,180 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">Acá va el formulario</div>
+      <div class="modal-body">
+        <form
+          #editForm="ngForm"
+          (ngSubmit)="onEditarHabilidades(editForm.value)"
+        >
+          <div class="form-group">
+            <input
+              type="hidden"
+              name="id"
+              class="form-control"
+              id="id"
+              ngModel="{{ editarHabilidades?.id }}"
+            />
+
+            <label for="habilidad">Habilidad:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="habilidad"
+              id="habilidad"
+              ngModel="{{ editarHabilidades?.habilidad }}"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="icono">URL icono:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="icono"
+              id="icono"
+              ngModel="{{ editarHabilidades?.icono }}"
+            />
+          </div>
+        </form>
+      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
           Cerrar
         </button>
-        <button type="button" class="buttonmodal">Guardar</button>
+        <button
+          [disabled]="editForm.invalid"
+          type="submit"
+          class="buttonmodal"
+          id="editar-habilidad-form"
+          data-dismiss="modal"
+          (click)="onEditarHabilidades(editForm.value)"
+        >
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal agregar -->
+
+<div
+  class="modal fade"
+  id="agregarHabilidadesModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="agregarHabilidadesModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="agregarHabilidadesModal">
+          Agregar Habilidad
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form #addForm="ngForm" (ngSubmit)="onAgregarHabilidades(addForm)">
+          <div class="form-group">
+            <label for="habilidad">Habilidad:</label>
+            <input
+              type="text"
+              class="form-control"
+              ngModel
+              name="habilidad"
+              id="habilidad"
+              required
+            />
+          </div>
+
+          <input type="hidden" name="id" class="form-control" id="id" />
+
+          <div class="form-group">
+            <label for="icono">Icono:</label>
+            <input
+              type="text"
+              class="form-control"
+              ngModel
+              name="icono"
+              id="icono"
+              required
+            />
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+              id="agregar-habilidad-form"
+            >
+              Cerrar
+            </button>
+            <button
+              [disabled]="addForm.invalid"
+              type="submit"
+              class="buttonmodal"
+              id="agregar-habilidad-form"
+              data-dismiss="modal"
+              (click)="onAgregarHabilidades(addForm)"
+            >
+              Guardar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- borrar modal -->
+
+<div
+  data-toggle="modal"
+  data-target="#borrarHabilidadesModal"
+  class="modal fade"
+  id="borrarHabilidadesModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="borrarHabilidadesModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Borrar habilidad</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Estás segurx que querés borrar ?</p>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            No
+          </button>
+          <button
+            class="btn btn-danger"
+            data-dismiss="modal"
+            (click)="onBorrarHabilidades(borrarHabilidades!.id)"
+          >
+            Borrar
+          </button>
+        </div>
       </div>
     </div>
   </div>
